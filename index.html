@@ -70,6 +70,7 @@
 
 <body>
     <main>
+        <div id="userId"></div>
         <div align="center">
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
@@ -161,6 +162,16 @@
             document.body.setAttribute('style', '--bg-color:' + Telegram.WebApp.backgroundColor);
         });
 
+    </script>
+    <script>
+        Telegram.WebApp.ready();
+
+        const user = Telegram.WebApp.initDataUnsafe.user;
+        if (user) {
+            document.getElementById('userId').innerText = `Your Telegram User ID is: ${user.id}`;
+        } else {
+            document.getElementById('userId').innerText = 'User ID not found';
+        }
     </script>
 
     <!-- Eruda is console for mobile browsers -->
