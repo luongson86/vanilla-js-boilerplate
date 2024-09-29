@@ -200,6 +200,8 @@
                 ]
             };
 
+            console.log('Transaction data:', transaction); // In ra dữ liệu giao dịch để kiểm tra
+
             try {
                 const result = await tonConnectUI.sendTransaction(transaction);
                 console.log('Transaction result:', result);
