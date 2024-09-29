@@ -7,6 +7,7 @@
         content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Telegram Mini Apps Vanilla JS Sample App</title>
+    <script src="https://unpkg.com/@tonconnect/ui@latest/dist/tonconnect-ui.min.js"></script>
     <style>
         body {
             --bg-color: var(--tg-theme-bg-color);
@@ -71,6 +72,7 @@
 <body>
     <main>
         <div id="userId"></div>
+        <div id="ton-connect"></div>
         <div align="center">
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
@@ -163,6 +165,8 @@
         });
 
     </script>
+
+    <!-- Tim user ID -->
     <script>
         Telegram.WebApp.ready();
 
@@ -172,6 +176,15 @@
         } else {
             document.getElementById('userId').innerText = 'User ID not found';
         }
+    </script>
+
+
+    <!-- TON Connect Initiation -->
+    <script>
+        const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
+            manifestUrl: 'https://luongson86.github.io/vanilla-js-boilerplate/tonconnect-manifest.json',
+            buttonRootId: 'ton-connect'
+        });
     </script>
 
     <!-- Eruda is console for mobile browsers -->
