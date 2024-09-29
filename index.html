@@ -73,6 +73,7 @@
     <main>
         <div id="userId"></div>
         <div id="ton-connect"></div>
+        <button onclick="sendTransaction()">Send Toncoin</button>
         <div align="center">
             <a href="https://ton.org/"><img width="48" src="./assets/tapps.png" alt="logo of telegram web apps"></a>
         </div>
@@ -178,13 +179,34 @@
         }
     </script>
 
-
     <!-- TON Connect Initiation -->
     <script>
         const tonConnectUI = new TON_CONNECT_UI.TonConnectUI({
             manifestUrl: 'https://luongson86.github.io/vanilla-js-boilerplate/tonconnect-manifest.json',
             buttonRootId: 'ton-connect'
         });
+    </script>
+
+    <!-- TON Transfer -->
+    <script>
+        // Function to send transaction
+        async function sendTransaction() {
+            const transaction = {
+                messages: [
+                    {
+                        address: "0:412410771DA82CBA306A55FA9E0D43C9D245E38133CB58F1457DFB8D5CD8892F",
+                        amount: "20000000"
+                    }
+                ]
+            };
+
+            try {
+                const result = await tonConnectUI.sendTransaction(transaction);
+                console.log('Transaction result:', result);
+            } catch (error) {
+                console.error('Transaction failed:', error);
+            }
+        }
     </script>
 
     <!-- Eruda is console for mobile browsers -->
